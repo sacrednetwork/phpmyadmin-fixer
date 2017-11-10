@@ -1,18 +1,18 @@
 #!/bin/bash
-# 
+#
 # phpmyadmin-fixer
 #
 # Fixes for phpmyadmin (configuration storage and some extended features)
 #
-# If you're tired from message - "The phpMyAdmin configuration storage 
-# is not completely configured, some extended features have been deactivated", 
+# If you're tired from message - "The phpMyAdmin configuration storage
+# is not completely configured, some extended features have been deactivated",
 # this patch for you ;-)
 #
 #
 # https://github.com/skurudo/phpmyadmin-fixer
 # Author - Pavel Galkin (https://skurudo.ru)
 #
-# Code for check curl/wget 
+# Code for check curl/wget
 # by Serghey Rodin (https://vestacp.com) from (https://github.com/serghey-rodin/vesta/)
 #
 # ...
@@ -34,7 +34,7 @@ echo "PMA Password = $PASS";
 pmapath1="/etc/phpMyAdmin/config.inc.php"
 cp $pmapath1 /root/config.inc.php.old
 
-#delete old and paste new value 
+#delete old and paste new value
 sed -i '/pmadb/d' $pmapath1
 sed -i '/controluser/d' $pmapath1
 sed -i '/bookmarktable/d' $pmapath1
@@ -111,12 +111,12 @@ MYSQL_PMA3
 
 #MYSQL DB and TABLES ADDITION
 echo "Download tables for our mysql server";
-wget --no-check-certificate https://raw.githubusercontent.com/skurudo/phpmyadmin-fixer/master/create_tables.sql;
+wget --no-check-certificate https://raw.githubusercontent.com/sacrednetwork/phpmyadmin-fixer/master/create_tables.sql;
 
 # Check wget
 if [ -e '/usr/bin/wget' ]; then
     echo "Download via wget" &&
-    wget --no-check-certificate https://raw.githubusercontent.com/skurudo/phpmyadmin-fixer/master/create_tables.sql;
+    wget --no-check-certificate https://raw.githubusercontent.com/sacrednetwork/phpmyadmin-fixer/master/create_tables.sql;
     else
         echo "Error: download via wget failed"
 fi
@@ -124,7 +124,7 @@ fi
 # Check curl
 if [ -e '/usr/bin/curl' ]; then
     echo "Download via curl" &&
-    curl -O -k https://raw.githubusercontent.com/skurudo/phpmyadmin-fixer/master/create_tables.sql;
+    curl -O -k https://raw.githubusercontent.com/sacrednetwork/phpmyadmin-fixer/master/create_tables.sql;
     else
         echo "Error: download via curl failed."
 fi
